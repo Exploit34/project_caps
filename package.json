@@ -1,0 +1,27 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "sqlite3": "^5.1.7"
+  },
+  "scripts": {
+    "start": "npx cds run"
+  },
+  "cds": {
+    "folderes": {
+      "db": "database/",
+      "srv": "service/",
+      "app": "uis/"
+    }
+  }
+}
