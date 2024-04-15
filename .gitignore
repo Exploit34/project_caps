@@ -1,6 +1,9 @@
 # Node.js
 node_modules
 
+# Docker
+/docker-compose.yml
+
 # CAP back-end
 _out
 *.db
@@ -35,3 +38,6 @@ mta_archives/
 
 # @cap-js/cds-typer
 @cds-models
+
+# Env
+*-private.env

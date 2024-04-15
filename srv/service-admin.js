@@ -1,61 +1,62 @@
-// import cds from '@sap/cds';
+import cds from '@sap/cds';
 
-// export default (srv) => {
-//     const { User } = cds.entities;
+export default (srv) => {
+    const { User } = cds.entities;
 
-//     srv.on('GET', 'User', async (req) => {
-//         try {
-//             return await cds.transaction(req).run(
-//                 SELECT.from(User)
-//             );
-//         } catch (error) {
-//             req.error(500, 'Error al leer los datos');
-//         }
-//     });
+    srv.on('READ', User, async (req) => {
+        try {
+            const users= await cds.run(SELECT.from(User));
 
-//     srv.before('POST', 'User', async (req) => {
-//         try {
-//             const datauser = req.data;
+            req.reply(users);
 
-//             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//             if (!emailRegex.test(datauser.correo)) return req.error(400, 'Formato de correo electrónico inválido');
+        } catch (error) {
+            req.error(500, 'Error al leer los datos');
+        }
+    });
 
-//             const existeData = await cds.transaction(req).run(
-//                 SELECT.from(User).where({ correo: datauser.correo})
-//             );
+    srv.before('POST', User, async (req) => {
+        try {
+            const datauser = req.data;
 
-//             if (existeData.length > 0) return req.error(400, 'El correo electrónico ya existe');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(datauser.correo)) return req.error(400, 'Formato de correo electrónico inválido');
 
-//             await cds.transaction(req).run(
-//                 INSERT.into(User).entries(datauser)
-//             )
-//             req.info(201, 'Usuario creado exitosamente');
-//         } catch (error) {
-//             req.error(500, 'Error al crear al usario', error)
-//         }
-//     });
+            const existeData = await cds.run(
+                SELECT.from(User).where({ correo: datauser.correo})
+            );
 
-//     srv.on('PUT', 'User', async (req) => {
-//         try {
-//             const datauser = req.data;
-//             const id = req.params[0].ID;
-//             return await cds.transaction(req).run(
-//                 UPDATE(User).set(datauser).where({ID: id})
-//             );
-//         } catch (error) {
-//             req.error(500, 'Error al actualizar el usuario')
-//         }
-//     });
+            if (existeData.length > 0) return req.error(400, 'El correo electrónico ya existe');
 
-//     srv.on('DELETE', 'User', async (req) => {
-//         try {
-//             const id = req.params[0].ID;
-//             return await cds.transaction(req).run(
-//                 DELETE.from(User).where({ ID: id })
-//             );
-//         } catch (error) {
-//             req.error(500, 'Error al actualizar el usuario')
-//         }
-//     });
-// };
+            await cds.transaction(req).run(
+                INSERT.into(User).entries(datauser)
+            )
+            req.info(201, 'Usuario creado exitosamente');
+        } catch (error) {
+            req.error(500, 'Error al crear al usario', error)
+        }
+    });
+
+    srv.on('PUT', User, async (req) => {
+        try {
+            const datauser = req.data;
+            const id = req.params[0].ID;
+            return await cds.run(
+                UPDATE(User).set(datauser).where({ID: id})
+            );
+        } catch (error) {
+            req.error(500, 'Error al actualizar el usuario')
+        }
+    });
+
+    srv.on('DELETE', User, async (req) => {
+        try {
+            const id = req.params[0].ID;
+            return await cds.run(
+                DELETE.from(User).where({ ID: id })
+            );
+        } catch (error) {
+            req.error(500, 'Error al actualizar el usuario')
+        }
+    });
+};
 

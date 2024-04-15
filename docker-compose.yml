@@ -1,13 +1,12 @@
-version: '3.9'
-
 services:
   db:
     image: nouchka/sqlite3:latest
     volumes:
       - ./data/db:/root/db
     environment:
-      - SQLITE3_DB=db.sqlite3
-    ports:
-      - '8000:8000'
-    depends_on:
-      - db
+      SQLITE_DATABASE: db.sqlite3
+    command: >
+      /bin/sh -c "while true; do
+      sqlite3 /root/db/$$SQLITE_DATABASE 'SELECT 1';
+      sleep 3600;
+      done"

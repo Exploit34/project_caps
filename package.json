@@ -18,8 +18,15 @@
     "start": "npx cds run"
   },
   "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "file": "user.sqlite",
+        "credentials": { "url": "db/user.sqlite" }
+      }
+    },
     "folderes": {
-      "db": "database/",
+      "db": "db/user.sqlite",
       "srv": "service/",
       "app": "uis/"
     }
