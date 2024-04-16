@@ -8,6 +8,6 @@ Content-Type: application/json
 {
     "nombre": "jose",
     "apellido": "londoño",
-    "correo": "j@gmail.com",
+    "correo": "jip12o@gmail.com",
     "password": "#12345WE"
 }
