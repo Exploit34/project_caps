@@ -1,0 +1,16 @@
+
+
+.button {
+    background-color: rgb(254, 55, 95);
+    border: none;
+    padding: 10px 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,39 @@
+
+###
+GET http://localhost:4004/odata/v4/person/Person?
+
+###
+###
+GET http://localhost:4004/odata/v4/person/Person(11) 
+
+###
+###
+POST http://localhost:4004/odata/v4/person/Person
+Content-Type: application/json
+
+{
+    "name": "TATIS",
+    "lastName": "TATIS",
+    "email": "TATIS@gmail.com", 
+    "password": "1234",
+    "age": 23
+}
+
+
+# "ID": 15,
+
+###
+###
+PATCH http://localhost:4004/odata/v4/person/Person(11)
+Content-Type: application/json
+
+{
+    "name": "coco vooo",
+    "lastName": "este era el de tatis-coco",
+    "email": "coco@gmail.com", 
+    "password": "1234",
+    "age": 23
+}
+
+###
+DELETE http://localhost:4004/odata/v4/person/Person(1096)

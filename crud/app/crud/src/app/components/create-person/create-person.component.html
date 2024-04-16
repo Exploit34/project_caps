@@ -1,0 +1,39 @@
+<p>create-person works!</p>
+
+<h2>Registrate</h2>
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="form">
+
+    <input type="text" formControlName="name" placeholder="Ingrese el nombre">
+
+    @if (form.get('name')?.hasError('minlength')) {
+    <p>longuitud minima de 3 caractéres</p>
+    }
+
+    @if (form.get('name')?.hasError('required') && form.get('name')!.touched) {
+    <p>campo requerido</p>
+    }
+
+    <input type=" text" formControlName="lastName" placeholder="Ingrese el apellido">
+
+    @if (form.get('lastName')?.hasError('minlength')) {
+        <p>longuitud minima de 5 caractéres</p>
+    }
+    @if (form.get('lastName')?.hasError('required')&& form.get('lastName')!.touched) {
+        <p>campo requerido</p>
+    }
+    
+    <input type="text" formControlName="email" placeholder="Ingrese el correo">
+
+    @if (form.get('email')?.hasError('email')) {
+        <p>Ingrese un correo válido</p>
+    }
+    @if (form.get('email')?.hasError('required')&& form.get('email')!.touched) {
+        <p>campo requerido</p>
+    }
+
+    <input type="text" formControlName="password" placeholder="Ingrese el contraseña">
+
+    <input type="number" formControlName="age" placeholder="Ingrese la edad">
+
+    <button type="submit" [disabled]="form.invalid">Registrarse</button>
+</form>

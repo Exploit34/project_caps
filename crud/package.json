@@ -1,0 +1,56 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1"
+  },
+  "scripts": {
+    "start": "node custom-server.js"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db/my-person.sqlite"
+        }
+      }
+    },
+    "folderes": {
+      "db": "db/my-person.sqlite",
+      "srv": "personRegister/",
+      "app": "crud/"
+    }
+  },
+  "routes": [
+    {
+      "source": "^/odata/(.*)$",
+      "target": "$1",
+      "destination": "MyService",
+      "csrfProtection": false,
+      "cors": {
+        "enabled": true,
+        "allowedHeaders": [
+          "*"
+        ],
+        "allowedMethods": [
+          "GET",
+          "POST",
+          "PATCH",
+          "DELETE"
+        ],
+        "allowedOriginPatterns": [
+          "http://localhost:4200"
+        ]
+      }
+    }
+  ]
+}
