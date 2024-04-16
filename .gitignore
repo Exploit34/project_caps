@@ -2,7 +2,7 @@
 node_modules
 
 # Docker
-/docker-compose.yml
+docker-compose.yml
 
 # CAP back-end
 _out

@@ -1,20 +1,19 @@
-import cds from '@sap/cds';
+// import cds from '@sap/cds';
 
 export default (srv) => {
-    const { User } = cds.entities;
+    const { User } = srv.entities;
 
     srv.on('READ', User, async (req) => {
         try {
             const users= await cds.run(SELECT.from(User));
 
             req.reply(users);
-
         } catch (error) {
             req.error(500, 'Error al leer los datos');
         }
     });
 
-    srv.before('POST', User, async (req) => {
+    srv.before('CREATE', User, async (req) => {
         try {
             const datauser = req.data;
 
