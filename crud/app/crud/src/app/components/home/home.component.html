@@ -3,7 +3,7 @@
     <button (click)="createUser()" class="button">Crear Usuario</button>
 
     @for(user of users; track user.ID) {
-    <div  style="display: flex; align-items: center; justify-content: space-between; width: 50%; background-color: bisque;margin-top: 20px;">
+    <div class="container">
         <p style="width: 150px;">{{user?.name}} {{user?.lastName}}</p>
         <p style="width: 150px;">{{user?.email}} </p> <button (click)="updateUser(user.ID!)"
             class="button">Actualizar</button> <button (click)="deleteUser(user.ID!)" class="button">Eliminar</button>

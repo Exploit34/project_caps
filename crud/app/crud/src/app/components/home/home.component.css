@@ -9,8 +9,15 @@
 }
 
 .container {
-    display: flex; 
+    /* display: flex; 
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    width: 50%; 
+    background-color: bisque;
+    margin-top: 20px;
+    padding: 4px 12px;
 }

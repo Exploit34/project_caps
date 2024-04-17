@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-person',
@@ -44,7 +44,7 @@ export class CreatePersonComponent {
         age: this.form.value.age
       }
 
-      this.client.postRequest(`http://localhost:4004/odata/v4/person/Person`, user).subscribe({
+      this.client.postRequest(`api/odata/v4/person/Person`, user).subscribe({
         next: (response: any) => {
           console.log(response);
           alert("registrado")

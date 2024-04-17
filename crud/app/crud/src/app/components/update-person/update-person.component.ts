@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ClientService } from '../../services/client.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../interfaces/user';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-person',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './update-person.component.html',
   styleUrl: './update-person.component.css'
 })
@@ -72,10 +73,10 @@ export class UpdatePersonComponent {
         age: this.form.value.age
       }
 
-      this.client.updateRequest(`http://localhost:4004/api/odata/v4/person/Person(${this.id})`, user).subscribe({
+      this.client.updateRequest(`api/odata/v4/person/Person(${this.id})`, user).subscribe({
         next: (response: any) => {
           console.log(response);
-          // alert("actualizado")
+          alert("actualizado")
           this.router.navigate(['/manage'])
 
         }, error: (error: any) => {

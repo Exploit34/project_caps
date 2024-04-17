@@ -12,9 +12,9 @@ POST http://localhost:4004/odata/v4/person/Person
 Content-Type: application/json
 
 {
-    "name": "TATIS",
-    "lastName": "TATIS",
-    "email": "TATIS@gmail.com", 
+    "name": "matias",
+    "lastName": "gato",
+    "email": "matias@gmail.com", 
     "password": "1234",
     "age": 23
 }
@@ -28,8 +28,8 @@ PATCH http://localhost:4004/odata/v4/person/Person(11)
 Content-Type: application/json
 
 {
-    "name": "coco vooo",
-    "lastName": "este era el de tatis-coco",
+    "name": "coco coco",
+    "lastName": "coquito",
     "email": "coco@gmail.com", 
     "password": "1234",
     "age": 23

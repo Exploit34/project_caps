@@ -26,11 +26,9 @@ export class HomeComponent {
   }
 
   getUsers() {
-    this.client.getRequest(`http://localhost:4004/odata/v4/person/Person?`).subscribe({
+    this.client.getRequest(`api/odata/v4/person/Person?`).subscribe({
       next: (response: any) => {
-        console.log("AQUI", response.value);
-        console.log("AQUI", response.value[0].name);
-        console.log("AQUI", response.value[0].ID);
+        console.log("getUsers", response.value);
         this.users = response.value
 
       }, error: (error: any) => {
@@ -51,7 +49,7 @@ export class HomeComponent {
   }
 
   updateUser(id:string) {
-    this.router.navigate(['/updateUser', id]);
+    this.router.navigate(['updateUser', id]);
   }
 
   deleteUser(id:string) {
