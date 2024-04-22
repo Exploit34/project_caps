@@ -32,7 +32,7 @@ export class HomeComponent {
         this.users = response.value
 
       }, error: (error: any) => {
-        console.log(error.error.error);
+        console.log(error.error);
 
       }, complete: () => console.log("complete")
     })
@@ -42,9 +42,7 @@ export class HomeComponent {
     this.router.navigate(['/createUser'])
   }
 
-  viewUser(id:string) {
-    console.log("EEE", id);
-    
+  viewUser(id:string) {  
     this.router.navigate(['/viewUser', id])
   }
 

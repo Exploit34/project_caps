@@ -1,4 +1,3 @@
-<p>update-person works!</p>
 
 <form [formGroup]="form" (ngSubmit)="submitForm()">
 
@@ -35,7 +34,7 @@
     <input type="number" formControlName="age" placeholder="Ingrese la edad">
 
     
-    <button type="submit" [disabled]="form.pristine">Actualizar</button>
-    <!-- <button type="submit" [disabled]="form.invalid || form.pristine">Actualizar</button> -->
+    <!-- <button type="submit" [disabled]="form.pristine">Actualizar</button> -->
+    <button type="submit" [disabled]="form.invalid || form.pristine">Actualizar</button>
 
 </form>

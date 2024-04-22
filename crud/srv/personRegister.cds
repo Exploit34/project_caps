@@ -21,14 +21,14 @@
 using my.person as myPerson from '../db/person';
 
 
-service person{
-    entity Person as projection on myPerson.Person;   
-
-}
-// service person @(
-//     impl:'./personRegister'
-// )
-// {
+// service person{
 //     entity Person as projection on myPerson.Person;   
 
 // }
+service person @(
+    impl:'./personRegister'
+)
+{
+    entity Person as projection on myPerson.Person;   
+
+}

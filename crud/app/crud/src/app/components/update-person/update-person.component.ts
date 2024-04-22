@@ -59,10 +59,7 @@ export class UpdatePersonComponent {
   }
 
   submitForm() {
-    // if (this.form.valid && !this.form.pristine) {
-    if (!this.form.pristine) {
-
-      console.log("entraria?");
+    if (this.form.valid && !this.form.pristine) {
       
       let user: User = {
         ID: this.data.ID,

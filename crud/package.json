@@ -12,8 +12,10 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1"
   },
+  
   "scripts": {
-    "start": "node custom-server.js"
+    "dev:back": "cds watch --port 4004",
+    "dev:front": "cd app/crud && npm run start -- --proxy-config proxy.conf.json"
   },
   "cds": {
     "requires": {
@@ -29,28 +31,5 @@
       "srv": "personRegister/",
       "app": "crud/"
     }
-  },
-  "routes": [
-    {
-      "source": "^/odata/(.*)$",
-      "target": "$1",
-      "destination": "MyService",
-      "csrfProtection": false,
-      "cors": {
-        "enabled": true,
-        "allowedHeaders": [
-          "*"
-        ],
-        "allowedMethods": [
-          "GET",
-          "POST",
-          "PATCH",
-          "DELETE"
-        ],
-        "allowedOriginPatterns": [
-          "http://localhost:4200"
-        ]
-      }
-    }
-  ]
+  }
 }

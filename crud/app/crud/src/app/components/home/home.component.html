@@ -7,7 +7,7 @@
         <p style="width: 150px;">{{user?.name}} {{user?.lastName}}</p>
         <p style="width: 150px;">{{user?.email}} </p> <button (click)="updateUser(user.ID!)"
             class="button">Actualizar</button> <button (click)="deleteUser(user.ID!)" class="button">Eliminar</button>
-        <button (click)="viewUser(user.ID!)">Ver</button>
+        <button class="button" (click)="viewUser(user.ID!)">Ver</button>
     </div>
     } @empty {
         <p>No hay usuarios</p>

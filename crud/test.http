@@ -7,33 +7,49 @@ GET http://localhost:4004/odata/v4/person/Person?
 GET http://localhost:4004/odata/v4/person/Person(11) 
 
 ###
-###
 POST http://localhost:4004/odata/v4/person/Person
 Content-Type: application/json
 
 {
-    "name": "matias",
+    "name": "sparky",
     "lastName": "gato",
-    "email": "matias@gmail.com", 
+    "email": "sparky@gmail.com", 
     "password": "1234",
-    "age": 23
+    "age": 3
 }
-
 
 # "ID": 15,
 
-###
 ###
 PATCH http://localhost:4004/odata/v4/person/Person(11)
 Content-Type: application/json
 
 {
-    "name": "coco coco",
-    "lastName": "coquito",
+    "name": "coco cocosete",
+    "lastName": "love iu",
     "email": "coco@gmail.com", 
     "password": "1234",
     "age": 23
 }
 
 ###
-DELETE http://localhost:4004/odata/v4/person/Person(1096)
+DELETE http://localhost:4004/odata/v4/person/Person(1091)
+
+ 
+###
+# PATCH http://localhost:4004/odata/v4/person/Person(11)
+# Content-Type: application/json
+
+# {
+#     "email": "cocoHermoso@gmail.com", 
+# }
+
+###
+# POST http://localhost:4004/odata/v4/person/Person
+# Content-Type: application/json
+
+# {
+#     "name": "matias",
+#     "lastName": "gato",
+# }
+
